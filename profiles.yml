@@ -1,0 +1,14 @@
+millage_group:
+  outputs:
+    dev:
+      account: ik42880.eu-west-1
+      database: snowflake_sample_data
+      private_key_passphrase: "{{env_var('private_key_passphrase')}}"
+      private_key_path: "{{env_var('private_key_path')}}"
+      role: 
+      schema: tpch_sf1
+      threads: 1
+      type: snowflake
+      user: FIKAYOL
+      warehouse: transform_wh
+  target: dev
