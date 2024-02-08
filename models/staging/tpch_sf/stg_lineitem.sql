@@ -5,7 +5,8 @@ WITH cte as (
     l_shipdate as shipdate,
     l_extendedprice as extendedprice,
     l_returnflag as returnflag,
-    l_discount as discount
+    l_discount as discount,
+    l_linestatus as linestatus
     from {{ source('tpch_sf1000', 'lineitem') }}
 )
 
