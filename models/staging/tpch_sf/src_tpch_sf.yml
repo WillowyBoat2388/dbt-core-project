@@ -10,3 +10,4 @@ sources:
       - name: partsupp
       - name: supplier
       - name: orders
+      - name: customer
