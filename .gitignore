@@ -1,4 +1,4 @@
-
+models/tpch_sf/core/profits.sql
 target/
 dbt_packages/
 logs/

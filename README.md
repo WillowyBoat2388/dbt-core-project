@@ -1,4 +1,4 @@
-Welcome to the TPC_H Analytics Report
+Welcome to the TPCH_SF Analytics Report
 
 ### Project Description:
 

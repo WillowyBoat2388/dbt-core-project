@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: tpch_sf1000
+    database: snowflake_sample_data
+    tables:
+      - name: part
+      - name: lineitem
+      - name: nation
+      - name: partsupp
+      - name: supplier
+      - name: orders
