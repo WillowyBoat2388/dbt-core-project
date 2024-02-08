@@ -2,13 +2,13 @@ millage_group:
   outputs:
     dev:
       account: ik42880.eu-west-1
-      database: analytics
-      private_key_passphrase: "{{env_var('private_key_passphrase')}}"
-      private_key_path: "{{env_var('private_key_path')}}"
+      database: "{{env_var('DBT_SNOWFLAKE_DATABASE')}}"
+      private_key_passphrase: "{{env_var('DBT_PASSPHRASE')}}"
+      private_key_path: "{{env_var('DBT_PATH')}}"
       role: 
-      schema: reports
+      schema: "{{env_var('DBT_SNOWFLAKE_SCHEMA')}}"
       threads: 1
       type: snowflake
-      user: FIKAYOL
+      user: "{{env_var('DBT_SNOWFLAKE_USER')}}"
       warehouse: transform_wh
   target: dev
