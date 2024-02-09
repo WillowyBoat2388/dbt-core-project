@@ -21,13 +21,13 @@ n as (
 )
 
 
-select distinct(n.nationname) AS SUPPLIER_NATION, YEAR(L.shipdate) AS SUPPLY_DATE, SUM(P.sell_price-PS.buyprice) AS PROFIT
+select distinct(n.name) AS SUPPLIER_NATION, YEAR(L.shipdate) AS SUPPLY_DATE, SUM(P.sell_price-PS.buyprice) AS PROFIT
 from p 
 INNER JOIN ps using (partkey)
 inner join l using (partkey, suppkey)
 inner join supp using (suppkey)
 inner join n using (nationkey)
 where lower(p.part_name) like '%green%'
-group by n.nationname, year(l.shipdate)
-order by n.nationname, year(l.shipdate)
+group by n.name, year(l.shipdate)
+order by n.name, year(l.shipdate)
 limit 10
