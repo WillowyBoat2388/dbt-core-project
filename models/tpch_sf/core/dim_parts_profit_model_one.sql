@@ -1,29 +1,19 @@
-WITH p as (
-    select *
-    from {{ ref('stg_parts') }}
-),
+-- Model 1: Analyzing supplier nation-wise profit for green parts
 
-ps as (
-    select *
-    from {{ ref('stg_partsupp') }}
-),
-l as (
-    select *
-    from {{ ref('stg_lineitem') }}
-),
-supp as (
-    select *
-    from {{ ref('stg_supplier') }}
-),
-n as (
-    select *
-    from {{ ref('stg_nation') }}
-)
+with
+    p as (select * from {{ ref("stg_parts") }}),
 
+    ps as (select * from {{ ref("stg_partsupp") }}),
+    l as (select * from {{ ref("stg_lineitem") }}),
+    supp as (select * from {{ ref("stg_supplier") }}),
+    n as (select * from {{ ref("stg_nation") }})
 
-select distinct(n.name) AS SUPPLIER_NATION, YEAR(L.shipdate) AS SUPPLY_DATE, SUM(P.sell_price-PS.buyprice) AS PROFIT
-from p 
-INNER JOIN ps using (partkey)
+select distinct
+    (n.name) as supplier_nation,
+    year(l.shipdate) as supply_date,
+    sum(p.sell_price - ps.buyprice) as profit
+from p
+inner join ps using (partkey)
 inner join l using (partkey, suppkey)
 inner join supp using (suppkey)
 inner join n using (nationkey)
