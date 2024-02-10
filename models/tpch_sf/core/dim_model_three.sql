@@ -1,36 +1,17 @@
-with o as(
-    select *
-    from {{ ref('stg_orders')}}
-),
-c as (
-    select *
-    from {{ ref('stg_customer')}}
-),
-l as (
-    select *
-    from {{ ref('stg_lineitem')}}
-),
-customer_orders AS (
-    SELECT
-        c.custkey,
-        COALESCE(SUM(l.extendedprice), 0) AS total_order_value
-    FROM
-        c
-    LEFT JOIN
-        o USING (custkey)
-    LEFT JOIN
-        l USING (orderkey)
-    WHERE 
-        o.comment NOT LIKE '%special%'
-    GROUP BY
-        c.custkey
-    
-)
+with
+    o as (select * from {{ ref("stg_orders") }}),
+    c as (select * from {{ ref("stg_customer") }}),
+    l as (select * from {{ ref("stg_lineitem") }}),
+    customer_orders as (
+        select c.custkey, coalesce(sum(l.extendedprice), 0) as total_order_value
+        from c
+        left join o using (custkey)
+        left join l using (orderkey)
+        where o.comment not like '%special%'
+        group by c.custkey
 
-SELECT
-    co.custkey as customer,
-    co.total_order_value
-FROM
-    customer_orders AS co
-ORDER BY
-    total_order_value DESC
+    )
+
+select co.custkey as customer, co.total_order_value
+from customer_orders as co
+order by total_order_value desc

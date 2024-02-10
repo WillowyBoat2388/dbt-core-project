@@ -1,4 +1,5 @@
-select l_partkey as partkey,
+select
+    l_partkey as partkey,
     l_suppkey as suppkey,
     l_orderkey as orderkey,
     l_shipdate as shipdate,
@@ -6,4 +7,4 @@ select l_partkey as partkey,
     l_returnflag as returnflag,
     l_discount as discount,
     l_linestatus as linestatus
-from {{ source('tpch_sf1000', 'lineitem') }}
+from {{ source("tpch_sf1000", "lineitem") }}
