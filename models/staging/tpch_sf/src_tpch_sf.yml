@@ -11,3 +11,4 @@ sources:
       - name: supplier
       - name: orders
       - name: customer
+      - name: region
