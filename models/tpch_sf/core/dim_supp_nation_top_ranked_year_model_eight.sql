@@ -3,9 +3,7 @@ with
     ps as (select * from {{ ref("stg_partsupp") }}),
     s as (select * from {{ ref("stg_supplier") }}),
     o as (select * from {{ ref("stg_orders") }}),
-    l as (select * from {{ ref("stg_lineitem") }})
-
-with
+    l as (select * from {{ ref("stg_lineitem") }}),
     year_month as (
         select distinct
             year(o.orderdate) as the_year,

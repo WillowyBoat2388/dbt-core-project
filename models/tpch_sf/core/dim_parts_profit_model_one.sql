@@ -1,3 +1,5 @@
+-- Model 1: Analyzing supplier nation-wise profit for green parts
+
 with
     p as (select * from {{ ref("stg_parts") }}),
 

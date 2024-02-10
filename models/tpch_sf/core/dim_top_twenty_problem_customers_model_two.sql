@@ -20,4 +20,3 @@ inner join o using (custkey)
 inner join l using (orderkey)
 having year(l.shipdate) = '1993' and quarter(l.shipdate) = '3' and l.returnflag = 'R'
 order by lost_revenue desc
-limit 20
