@@ -1,3 +1,4 @@
+-- Model 7: Analyzing running total price per nation and customer
 with
     n as (select * from {{ ref("stg_nation") }}),
     c as (select * from {{ ref("stg_customer") }}),

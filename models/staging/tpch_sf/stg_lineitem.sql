@@ -6,5 +6,7 @@ select
     l_extendedprice as extendedprice,
     l_returnflag as returnflag,
     l_discount as discount,
-    l_linestatus as linestatus
+    l_linestatus as linestatus,
+    l_commitdate as commitdate,
+    l_receiptdate as receiptdate
 from {{ source("tpch_sf1000", "lineitem") }}

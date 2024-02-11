@@ -1,3 +1,4 @@
+-- Model 2: Analyzing lost revenue due to returns for the third quarter of 1993
 with
     c as (select * from {{ ref("stg_customer") }}),
     o as (select * from {{ ref("stg_orders") }}),

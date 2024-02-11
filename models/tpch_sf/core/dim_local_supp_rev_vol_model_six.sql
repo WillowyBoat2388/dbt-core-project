@@ -1,3 +1,4 @@
+-- Model 6: Analyzing revenue volume by nation
 with
     n as (select * from {{ ref("stg_nation") }}),
     ps as (select * from {{ ref("stg_partsupp") }}),

@@ -1,3 +1,4 @@
+--Model 9: Analyzing percentage change in total price by customer
 with
     c as (select * from {{ ref("stg_customer") }}),
     o as (select * from {{ ref("stg_orders") }}),

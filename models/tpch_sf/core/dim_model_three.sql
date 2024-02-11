@@ -1,3 +1,4 @@
+-- Model 3: Analyzing customer orders excluding special orders
 with
     o as (select * from {{ ref("stg_orders") }}),
     c as (select * from {{ ref("stg_customer") }}),
