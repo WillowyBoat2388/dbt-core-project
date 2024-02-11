@@ -1,3 +1,4 @@
+-- Model 11: Analyzing the percentage of revenue from promotional parts for each month
 with
     p as (select * from {{ ref("stg_parts") }}),
     o as (select * from {{ ref("stg_orders") }}),

@@ -1,3 +1,4 @@
+-- Model 8: Analyzing top 3 quantity sold by supplier nation and month
 with
     n as (select * from {{ ref("stg_nation") }}),
     ps as (select * from {{ ref("stg_partsupp") }}),

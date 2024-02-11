@@ -1,3 +1,4 @@
+-- Model 10: Analyzing if the total price has increased compared to the previous order by customer
 with
     c as (select * from {{ ref("stg_customer") }}),
     o as (select * from {{ ref("stg_orders") }}),

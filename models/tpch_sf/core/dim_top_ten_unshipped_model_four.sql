@@ -1,3 +1,4 @@
+-- Model 4: Exported model showing top 10 orders with the highest total price in the first quarter of 1995
 with
     o as (select * from {{ ref("stg_orders") }}),
     l as (select * from {{ ref("stg_lineitem") }})
